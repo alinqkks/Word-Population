@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -15,14 +14,104 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-main: #020711;
+    --bg-app-gradient: radial-gradient(circle at 50% 48%, rgba(10,57,91,.30), transparent 42%), #020711;
+    --bg-header: rgba(2,8,18,.94);
+    --border-header: #152941;
+    --bg-globe-area: radial-gradient(circle at center, rgba(15,92,139,.16), transparent 50%);
+    --globe-bg: #020711;
+    --text-main: #edf6ff;
+    --text-muted: #7188a5;
+    --text-secondary: #9eb1ca;
+    --text-section: #d7e8fb;
+    --border-panel: #142944;
+    --bg-panel-1: rgba(7,18,33,.96);
+    --bg-panel-2: rgba(3,10,20,.97);
+    --border-input: #1d3553;
+    --bg-input: #091729;
+    --bg-button: #071222;
+    --border-button: #19304d;
+    --text-button: #d9e9ff;
+    --border-globe-controls: #17304e;
+    --bg-globe-controls: rgba(3,12,24,.85);
+    --bg-rotate: rgba(3,12,24,.78);
+    --text-rotate: #8198b4;
+    --accent-blue: #279ff1;
+    --accent-blue-light: #51c8ff;
+    --accent-blue-border: #199df0;
+    --bg-gender: #091528;
+    --border-gender: #1d3553;
+    --text-gender: #a6b9d1;
+    --bg-stat-card: #071426;
+    --border-stat-card: #19324f;
+    --text-stat-icon: #45aaff;
+    --bg-country-bar: #142b46;
+    --border-clear: #253c57;
+    --text-clear: #7188a5;
+    --border-info: #142a45;
+    --text-info: #7f9dbf;
+    --text-info-p: #647c9b;
+    --text-country-rank: #6d8fb6;
+    --text-job: #9eb2cc;
+    --text-job-count: #edf6ff;
+    --shadow-logo: 0 0 25px rgba(31,159,255,.20);
+    --shadow-panel: inset 0 1px 0 rgba(255,255,255,.015);
+}
+
+[data-theme="light"] {
+    --bg-main: #f0f4f9;
+    --bg-app-gradient: radial-gradient(circle at 50% 48%, rgba(200,220,240,.40), transparent 42%), #f0f4f9;
+    --bg-header: rgba(255,255,255,.92);
+    --border-header: #d0dae5;
+    --bg-globe-area: radial-gradient(circle at center, rgba(100,160,210,.10), transparent 50%);
+    --globe-bg: #e8eef5;
+    --text-main: #1a2433;
+    --text-muted: #5a6b80;
+    --text-secondary: #4a5a72;
+    --text-section: #2a3a4e;
+    --border-panel: #d0dae5;
+    --bg-panel-1: rgba(255,255,255,.95);
+    --bg-panel-2: rgba(248,250,253,.97);
+    --border-input: #c0ccd9;
+    --bg-input: #ffffff;
+    --bg-button: #ffffff;
+    --border-button: #c0ccd9;
+    --text-button: #2a3a4e;
+    --border-globe-controls: #c0ccd9;
+    --bg-globe-controls: rgba(255,255,255,.88);
+    --bg-rotate: rgba(255,255,255,.82);
+    --text-rotate: #5a6b80;
+    --accent-blue: #159cf0;
+    --accent-blue-light: #28a5f0;
+    --accent-blue-border: #28a5f0;
+    --bg-gender: #f4f7fb;
+    --border-gender: #c0ccd9;
+    --text-gender: #5a6b80;
+    --bg-stat-card: #f4f7fb;
+    --border-stat-card: #d0dae5;
+    --text-stat-icon: #159cf0;
+    --bg-country-bar: #e0e8f0;
+    --border-clear: #c0ccd9;
+    --text-clear: #5a6b80;
+    --border-info: #d0dae5;
+    --text-info: #5a6b80;
+    --text-info-p: #7a8a9e;
+    --text-country-rank: #8a9bb0;
+    --text-job: #5a6b80;
+    --text-job-count: #1a2433;
+    --shadow-logo: 0 0 25px rgba(40,165,240,.15);
+    --shadow-panel: inset 0 1px 0 rgba(0,0,0,.02);
+}
+
 html,
 body {
     margin: 0;
     width: 100%;
     height: 100%;
     font-family: Inter, Arial, sans-serif;
-    background: #020711;
-    color: #edf6ff;
+    background: var(--bg-main);
+    color: var(--text-main);
 }
 
 body {
@@ -38,45 +127,24 @@ button {
     cursor: pointer;
 }
 
-/* =========================
-   ОСНОВНОЙ КОНТЕЙНЕР
-========================= */
-
 .app {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-
-    background:
-        radial-gradient(
-            circle at 50% 48%,
-            rgba(10, 57, 91, .30),
-            transparent 42%
-        ),
-        #020711;
+    background: var(--bg-app-gradient);
 }
-
-/* =========================
-   HEADER
-========================= */
 
 .header {
     height: 78px;
     flex: 0 0 78px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 28px;
-
-    border-bottom: 1px solid #152941;
-
-    background: rgba(2, 8, 18, .94);
-
+    border-bottom: 1px solid var(--border-header);
+    background: var(--bg-header);
     backdrop-filter: blur(15px);
-
     z-index: 20;
 }
 
@@ -89,20 +157,14 @@ button {
 .logo-circle {
     width: 43px;
     height: 43px;
-
-    border: 1px solid #199df0;
+    border: 1px solid var(--accent-blue-border);
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    color: #51c8ff;
-
+    color: var(--accent-blue-light);
     font-size: 28px;
-
-    box-shadow:
-        0 0 25px rgba(31, 159, 255, .20);
+    box-shadow: var(--shadow-logo);
 }
 
 .logo-title {
@@ -112,71 +174,94 @@ button {
 
 .logo-subtitle {
     margin-top: 3px;
-
-    color: #7188a5;
-
+    color: var(--text-muted);
     font-size: 11px;
 }
 
 .header-right {
     display: flex;
     gap: 9px;
+    align-items: center;
 }
 
 .header-button {
     padding: 9px 13px;
-
-    border: 1px solid #19304d;
+    border: 1px solid var(--border-button);
     border-radius: 10px;
-
-    color: #d9e9ff;
-
-    background: #071222;
+    color: var(--text-button);
+    background: var(--bg-button);
 }
 
-/* =========================
-   LAYOUT
-========================= */
+.header-button:hover {
+    border-color: var(--accent-blue);
+}
+
+/* Theme toggle */
+.theme-toggle {
+    font-size: 16px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Language dropdown */
+.lang-wrapper {
+    position: relative;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 140px;
+    border: 1px solid var(--border-button);
+    border-radius: 10px;
+    background: var(--bg-button);
+    overflow: hidden;
+    display: none;
+    z-index: 100;
+}
+
+.lang-dropdown.open {
+    display: block;
+}
+
+.lang-option {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    border: 0;
+    background: transparent;
+    color: var(--text-button);
+    text-align: left;
+    font-size: 13px;
+}
+
+.lang-option:hover {
+    background: var(--bg-input);
+}
+
+.lang-option.active {
+    color: var(--accent-blue);
+    font-weight: 700;
+}
 
 .dashboard {
     flex: 1;
-
     min-height: 0;
-
     display: grid;
-
-    grid-template-columns:
-        360px
-        minmax(0, 1fr)
-        390px;
+    grid-template-columns: 360px minmax(0, 1fr) 390px;
 }
-
-/* =========================
-   PANELS
-========================= */
 
 .panel {
     margin-top: 12px;
     margin-bottom: 12px;
-
     padding: 23px;
-
     min-width: 0;
-
     overflow-y: auto;
-
-    border: 1px solid #142944;
+    border: 1px solid var(--border-panel);
     border-radius: 13px;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(7,18,33,.96),
-            rgba(3,10,20,.97)
-        );
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.015);
+    background: linear-gradient(180deg, var(--bg-panel-1), var(--bg-panel-2));
+    box-shadow: var(--shadow-panel);
 }
 
 .left-panel {
@@ -189,139 +274,85 @@ button {
     margin-right: 22px;
 }
 
-/* =========================
-   LEFT PANEL
-========================= */
-
 .panel-heading {
     display: flex;
     gap: 12px;
-
     margin-bottom: 25px;
 }
 
 .heading-icon {
     font-size: 27px;
-    color: #74bfff;
+    color: var(--accent-blue-light);
 }
 
 .panel-heading h1 {
     margin: 0 0 6px;
-
     font-size: 17px;
 }
 
 .panel-heading p {
     margin: 0;
-
-    color: #7188a5;
-
+    color: var(--text-muted);
     font-size: 11px;
     line-height: 1.5;
 }
 
 .field-label {
     display: block;
-
     margin: 18px 0 7px;
-
-    color: #9eb1ca;
-
+    color: var(--text-secondary);
     font-size: 10px;
     font-weight: 800;
-
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 select {
     width: 100%;
-
     padding: 12px 13px;
-
-    color: #edf6ff;
-
-    background: #091729;
-
-    border: 1px solid #1d3553;
+    color: var(--text-main);
+    background: var(--bg-input);
+    border: 1px solid var(--border-input);
     border-radius: 10px;
-
     outline: none;
 }
 
 select:focus {
-    border-color: #279ff1;
-
-    box-shadow:
-        0 0 0 3px rgba(39,159,241,.10);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(39,159,241,.10);
 }
-
-/* =========================
-   ПОЛ
-========================= */
 
 .gender-buttons {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 9px;
 }
 
 .gender-button {
     padding: 12px;
-
-    border: 1px solid #1d3553;
+    border: 1px solid var(--border-gender);
     border-radius: 10px;
-
-    background: #091528;
-
-    color: #a6b9d1;
+    background: var(--bg-gender);
+    color: var(--text-gender);
 }
 
 .gender-button.active {
     color: white;
-
     border-color: #32aaff;
-
-    background:
-        linear-gradient(
-            100deg,
-            #087be0,
-            #1a9af2
-        );
-
-    box-shadow:
-        0 8px 25px rgba(0,132,255,.20);
+    background: linear-gradient(100deg, #087be0, #1a9af2);
+    box-shadow: 0 8px 25px rgba(0,132,255,.20);
 }
-
-/* =========================
-   ADD BUTTON
-========================= */
 
 .add-button {
     width: 100%;
-
     margin-top: 24px;
-
     padding: 13px;
-
     border: 0;
     border-radius: 10px;
-
-    background:
-        linear-gradient(
-            100deg,
-            #0575db,
-            #158eea
-        );
-
+    background: linear-gradient(100deg, #0575db, #158eea);
     color: white;
-
     font-weight: 800;
-
-    box-shadow:
-        0 10px 28px rgba(0,127,235,.20);
+    box-shadow: 0 10px 28px rgba(0,127,235,.20);
 }
 
 .add-button:hover {
@@ -332,54 +363,31 @@ select:focus {
     transform: translateY(1px);
 }
 
-/* =========================
-   INFO
-========================= */
-
 .info-box {
     margin-top: 28px;
-
     padding-top: 21px;
-
-    border-top: 1px solid #142a45;
-
-    color: #7f9dbf;
-
+    border-top: 1px solid var(--border-info);
+    color: var(--text-info);
     font-size: 11px;
     line-height: 1.55;
 }
 
 .info-box p {
     margin: 8px 0 0;
-
-    color: #647c9b;
+    color: var(--text-info-p);
 }
-
-/* =========================
-   GLOBE
-========================= */
 
 .globe-area {
     position: relative;
-
     min-width: 0;
     min-height: 0;
-
     overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(15,92,139,.16),
-            transparent 50%
-        );
+    background: var(--bg-globe-area);
 }
 
 #globe {
     position: absolute;
-
     inset: 0;
-
     width: 100%;
     height: 100%;
 }
@@ -388,41 +396,26 @@ select:focus {
     display: block;
 }
 
-/* =========================
-   GLOBE CONTROLS
-========================= */
-
 .globe-controls {
     position: absolute;
-
     left: 50%;
     bottom: 18px;
-
     transform: translateX(-50%);
-
     display: flex;
-
     overflow: hidden;
-
-    border: 1px solid #17304e;
+    border: 1px solid var(--border-globe-controls);
     border-radius: 11px;
-
-    background: rgba(3,12,24,.85);
-
+    background: var(--bg-globe-controls);
     backdrop-filter: blur(10px);
 }
 
 .globe-controls button {
     width: 47px;
     height: 39px;
-
     border: 0;
-    border-right: 1px solid #17304e;
-
-    color: #d7e8ff;
-
+    border-right: 1px solid var(--border-globe-controls);
+    color: var(--text-button);
     background: transparent;
-
     font-size: 20px;
 }
 
@@ -432,19 +425,13 @@ select:focus {
 
 .rotate-control {
     position: absolute;
-
     top: 17px;
     left: 17px;
-
     padding: 8px 11px;
-
-    border: 1px solid #17304e;
+    border: 1px solid var(--border-globe-controls);
     border-radius: 9px;
-
-    background: rgba(3,12,24,.78);
-
-    color: #8198b4;
-
+    background: var(--bg-rotate);
+    color: var(--text-rotate);
     font-size: 10px;
 }
 
@@ -453,56 +440,39 @@ select:focus {
     margin-right: 5px;
 }
 
-/* =========================
-   RIGHT PANEL
-========================= */
-
 .statistics-title {
     display: flex;
     align-items: center;
     gap: 10px;
-
     margin-bottom: 15px;
 }
 
 .statistics-title-icon {
-    color: #35aaff;
+    color: var(--accent-blue);
     font-size: 22px;
 }
 
 .statistics-title h2 {
     margin: 0;
-
     font-size: 17px;
 }
 
-/* =========================
-   STAT CARDS
-========================= */
-
 .stat-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
 }
 
 .stat-card {
     padding: 12px 10px;
-
-    border: 1px solid #19324f;
+    border: 1px solid var(--border-stat-card);
     border-radius: 11px;
-
-    background: #071426;
+    background: var(--bg-stat-card);
 }
 
 .stat-icon {
     display: block;
-
-    color: #45aaff;
-
+    color: var(--text-stat-icon);
     font-size: 18px;
 }
 
@@ -512,277 +482,140 @@ select:focus {
 
 .stat-number {
     display: block;
-
     margin-top: 8px;
-
     font-size: 21px;
     font-weight: 800;
 }
 
 .stat-label {
     display: block;
-
     margin-top: 2px;
-
-    color: #7188a5;
-
+    color: var(--text-muted);
     font-size: 10px;
 }
-
-/* =========================
-   SECTIONS
-========================= */
 
 .statistics-section {
     margin-top: 20px;
     padding-top: 18px;
-
-    border-top: 1px solid #142a44;
+    border-top: 1px solid var(--border-panel);
 }
 
 .section-title {
     margin-bottom: 12px;
-
-    color: #d7e8fb;
-
+    color: var(--text-section);
     font-size: 13px;
     font-weight: 800;
 }
 
-/* =========================
-   COUNTRIES
-========================= */
-
 .country-row {
     display: grid;
-
-    grid-template-columns:
-        21px
-        1fr
-        30px
-        75px;
-
+    grid-template-columns: 21px 1fr 30px 75px;
     align-items: center;
-
     gap: 7px;
-
     padding: 7px 0;
-
     font-size: 11px;
 }
 
 .country-rank {
-    color: #6d8fb6;
+    color: var(--text-country-rank);
 }
 
 .country-count {
     text-align: right;
-
     font-weight: 700;
 }
 
 .country-bar {
     height: 5px;
-
     overflow: hidden;
-
     border-radius: 20px;
-
-    background: #142b46;
+    background: var(--bg-country-bar);
 }
 
 .country-bar span {
     display: block;
-
     height: 100%;
-
     border-radius: inherit;
-
     background: #168ff0;
 }
 
-/* =========================
-   JOBS
-========================= */
-
 .job-row {
     display: grid;
-
-    grid-template-columns:
-        9px
-        1fr
-        28px;
-
+    grid-template-columns: 9px 1fr 28px;
     align-items: center;
-
     gap: 8px;
-
     padding: 6px 0;
-
-    color: #9eb2cc;
-
+    color: var(--text-job);
     font-size: 10px;
 }
 
 .job-count {
     text-align: right;
-
-    color: #edf6ff;
-
+    color: var(--text-job-count);
     font-weight: 700;
 }
 
 .job-dot {
     width: 8px;
     height: 8px;
-
     border-radius: 50%;
-
     background: #7e5cf2;
 }
 
-.job-row:nth-child(3) .job-dot {
-    background: #168ff0;
-}
-
-.job-row:nth-child(4) .job-dot {
-    background: #12bf78;
-}
-
-.job-row:nth-child(5) .job-dot {
-    background: #f0c516;
-}
-
-.job-row:nth-child(6) .job-dot {
-    background: #ff8c22;
-}
-
-.job-row:nth-child(7) .job-dot {
-    background: #f2445a;
-}
-
-.job-row:nth-child(8) .job-dot {
-    background: #18c5c9;
-}
-
-.job-row:nth-child(9) .job-dot {
-    background: #9b62df;
-}
-
-.job-row:nth-child(10) .job-dot {
-    background: #8da0b9;
-}
-
-/* =========================
-   CLEAR
-========================= */
+.job-row:nth-child(2) .job-dot { background: #168ff0; }
+.job-row:nth-child(3) .job-dot { background: #12bf78; }
+.job-row:nth-child(4) .job-dot { background: #f0c516; }
+.job-row:nth-child(5) .job-dot { background: #ff8c22; }
+.job-row:nth-child(6) .job-dot { background: #f2445a; }
+.job-row:nth-child(7) .job-dot { background: #18c5c9; }
+.job-row:nth-child(8) .job-dot { background: #9b62df; }
+.job-row:nth-child(9) .job-dot { background: #8da0b9; }
 
 .clear-button {
     width: 100%;
-
     margin-top: 18px;
-
     padding: 9px;
-
-    border: 1px solid #253c57;
+    border: 1px solid var(--border-clear);
     border-radius: 9px;
-
     background: transparent;
-
-    color: #7188a5;
-
+    color: var(--text-clear);
     font-size: 10px;
 }
 
 .clear-button:hover {
-    color: white;
-
-    border-color: #356086;
+    color: var(--text-main);
+    border-color: var(--accent-blue);
 }
 
-/* =========================
-   MOBILE
-========================= */
+.empty-stat {
+    color: var(--text-muted);
+    font-size: 11px;
+    padding: 10px 0;
+}
 
 @media (max-width: 1200px) {
-
     .dashboard {
-        grid-template-columns:
-            310px
-            minmax(400px, 1fr)
-            330px;
+        grid-template-columns: 310px minmax(400px, 1fr) 330px;
     }
-
-    .left-panel {
-        margin-left: 10px;
-    }
-
-    .right-panel {
-        margin-right: 10px;
-    }
-
+    .left-panel { margin-left: 10px; }
+    .right-panel { margin-right: 10px; }
     .country-row {
-        grid-template-columns:
-            18px
-            1fr
-            25px;
+        grid-template-columns: 18px 1fr 25px;
     }
-
-    .country-bar {
-        display: none;
-    }
+    .country-bar { display: none; }
 }
 
 @media (max-width: 900px) {
-
-    body {
-        overflow: auto;
-    }
-
-    .app {
-        min-height: 100vh;
-        height: auto;
-    }
-
-    .header {
-        height: 68px;
-        flex-basis: 68px;
-
-        padding: 0 14px;
-    }
-
-    .logo-title {
-        font-size: 15px;
-    }
-
-    .logo-subtitle {
-        font-size: 9px;
-    }
-
-    .dashboard {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .left-panel,
-    .right-panel {
-        margin: 10px;
-    }
-
-    .left-panel {
-        order: 1;
-    }
-
-    .globe-area {
-        order: 2;
-
-        height: 520px;
-        min-height: 520px;
-    }
-
-    .right-panel {
-        order: 3;
-    }
+    body { overflow: auto; }
+    .app { min-height: 100vh; height: auto; }
+    .header { height: 68px; flex-basis: 68px; padding: 0 14px; }
+    .logo-title { font-size: 15px; }
+    .logo-subtitle { font-size: 9px; }
+    .dashboard { display: flex; flex-direction: column; }
+    .left-panel, .right-panel { margin: 10px; }
+    .left-panel { order: 1; }
+    .globe-area { order: 2; height: 520px; min-height: 520px; }
+    .right-panel { order: 3; }
 }
 </style>
 </head>
@@ -791,321 +624,124 @@ select:focus {
 
 <div class="app">
 
-    <!-- ================= HEADER ================= -->
-
     <header class="header">
 
         <div class="logo">
-
-            <div class="logo-circle">
-                ◎
-            </div>
-
+            <div class="logo-circle">◎</div>
             <div>
-                <div class="logo-title">
-                    Карта населения мира
-                </div>
-
-                <div class="logo-subtitle">
-                    Люди. Страны. Профессии. Вся планета.
-                </div>
+                <div class="logo-title" data-i18n="title">Карта населения мира</div>
+                <div class="logo-subtitle" data-i18n="subtitle">Люди. Страны. Профессии. Вся планета.</div>
             </div>
-
         </div>
 
         <div class="header-right">
-
-            <button class="header-button">
-                ☼ ◐
-            </button>
-
-            <button class="header-button">
-                RU⌄
-            </button>
-
+            <button class="header-button theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+            <div class="lang-wrapper">
+                <button class="header-button" onclick="toggleLangMenu()" id="langBtn">RU ⌄</button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-option" onclick="setLanguage('ru')">Русский</button>
+                    <button class="lang-option" onclick="setLanguage('en')">English</button>
+                    <button class="lang-option" onclick="setLanguage('es')">Español</button>
+                </div>
+            </div>
         </div>
 
     </header>
 
-
-    <!-- ================= DASHBOARD ================= -->
-
     <main class="dashboard">
-
-
-        <!-- ================= LEFT ================= -->
 
         <aside class="panel left-panel">
 
             <div class="panel-heading">
-
-                <div class="heading-icon">
-                    ♙
-                </div>
-
+                <div class="heading-icon">♙</div>
                 <div>
-
-                    <h1>
-                        Добавить человека на карту
-                    </h1>
-
-                    <p>
-                        Заполните данные, чтобы увидеть
-                        человека на глобусе.
-                    </p>
-
+                    <h1 data-i18n="add_heading">Добавить человека на карту</h1>
+                    <p data-i18n="add_subheading">Заполните данные, чтобы увидеть человека на глобусе.</p>
                 </div>
-
             </div>
 
-
-            <!-- COUNTRY -->
-
-            <label class="field-label">
-                Страна
-            </label>
-
+            <label class="field-label" data-i18n="country">Страна</label>
             <select id="country">
-
-                <option value="">
-                    Выберите страну
-                </option>
-
+                <option value="" data-i18n="country_select">Выберите страну</option>
             </select>
 
-
-            <!-- GENDER -->
-
-            <label class="field-label">
-                Пол
-            </label>
-
+            <label class="field-label" data-i18n="gender">Пол</label>
             <div class="gender-buttons">
-
-                <button
-                    class="gender-button active"
-                    data-gender="Мужской"
-                    onclick="selectGender('Мужской')"
-                >
-                    ♂ &nbsp; Мужской
+                <button class="gender-button active" data-gender="Мужской" onclick="selectGender('Мужской')">
+                    ♂ &nbsp; <span data-i18n="male">Мужской</span>
                 </button>
-
-                <button
-                    class="gender-button"
-                    data-gender="Женский"
-                    onclick="selectGender('Женский')"
-                >
-                    ♀ &nbsp; Женский
+                <button class="gender-button" data-gender="Женский" onclick="selectGender('Женский')">
+                    ♀ &nbsp; <span data-i18n="female">Женский</span>
                 </button>
-
             </div>
 
-
-            <!-- JOB -->
-
-            <label class="field-label">
-                Должность
-            </label>
-
+            <label class="field-label" data-i18n="job">Должность</label>
             <select id="job">
-
-                <option value="">
-                    Выберите должность
-                </option>
-
+                <option value="" data-i18n="job_select">Выберите должность</option>
             </select>
 
-
-            <!-- ADD -->
-
-            <button
-                class="add-button"
-                onclick="addPerson()"
-            >
-                ＋ &nbsp; Добавить на карту
+            <button class="add-button" onclick="addPerson()">
+                ＋ &nbsp; <span data-i18n="add_button">Добавить на карту</span>
             </button>
 
-
             <div class="info-box">
-
-                <strong>
-                    ◎ &nbsp; Выбрать страну на карте
-                </strong>
-
-                <p>
-                    Кликните на страну на глобусе,
-                    чтобы увидеть статистику по ней
-                    в реальном времени.
-                </p>
-
+                <strong data-i18n="select_country_hint">◎ &nbsp; Выбрать страну на карте</strong>
+                <p data-i18n="select_country_desc">Кликните на страну на глобусе, чтобы увидеть статистику по ней в реальном времени.</p>
             </div>
 
-            <div class="info-box">
-
-                ⓘ &nbsp; Данные обновляются
-                в реальном времени
-
-            </div>
+            <div class="info-box" data-i18n="realtime_hint">ⓘ &nbsp; Данные обновляются в реальном времени</div>
 
         </aside>
 
-
-        <!-- ================= GLOBE ================= -->
-
         <section class="globe-area">
-
             <div id="globe"></div>
-
-
             <label class="rotate-control">
-
-                <input
-                    id="autoRotate"
-                    type="checkbox"
-                    checked
-                    onchange="toggleRotation()"
-                >
-
-                Автовращение
-
+                <input id="autoRotate" type="checkbox" checked onchange="toggleRotation()">
+                <span data-i18n="auto_rotate">Автовращение</span>
             </label>
-
-
             <div class="globe-controls">
-
-                <button onclick="zoomOut()">
-                    −
-                </button>
-
-                <button onclick="resetGlobe()">
-                    ◉
-                </button>
-
-                <button onclick="zoomIn()">
-                    ＋
-                </button>
-
+                <button onclick="zoomOut()">−</button>
+                <button onclick="resetGlobe()">◉</button>
+                <button onclick="zoomIn()">＋</button>
             </div>
-
         </section>
-
-
-        <!-- ================= RIGHT ================= -->
 
         <aside class="panel right-panel">
 
-
             <div class="statistics-title">
-
-                <span class="statistics-title-icon">
-                    ▥
-                </span>
-
-                <h2>
-                    Общая статистика
-                </h2>
-
+                <span class="statistics-title-icon">▥</span>
+                <h2 data-i18n="stats_title">Общая статистика</h2>
             </div>
-
-
-            <!-- BASIC STATISTICS -->
 
             <div class="stat-grid">
-
                 <div class="stat-card">
-
-                    <span class="stat-icon">
-                        ♟
-                    </span>
-
-                    <span
-                        id="totalCount"
-                        class="stat-number"
-                    >
-                        0
-                    </span>
-
-                    <span class="stat-label">
-                        Всего
-                    </span>
-
+                    <span class="stat-icon">♟</span>
+                    <span id="totalCount" class="stat-number">0</span>
+                    <span class="stat-label" data-i18n="total">Всего</span>
                 </div>
-
-
                 <div class="stat-card">
-
-                    <span class="stat-icon">
-                        ♂
-                    </span>
-
-                    <span
-                        id="maleCount"
-                        class="stat-number"
-                    >
-                        0
-                    </span>
-
-                    <span class="stat-label">
-                        Мужчины
-                    </span>
-
+                    <span class="stat-icon">♂</span>
+                    <span id="maleCount" class="stat-number">0</span>
+                    <span class="stat-label" data-i18n="males">Мужчины</span>
                 </div>
-
-
                 <div class="stat-card">
-
-                    <span class="stat-icon women">
-                        ♀
-                    </span>
-
-                    <span
-                        id="femaleCount"
-                        class="stat-number"
-                    >
-                        0
-                    </span>
-
-                    <span class="stat-label">
-                        Женщины
-                    </span>
-
+                    <span class="stat-icon women">♀</span>
+                    <span id="femaleCount" class="stat-number">0</span>
+                    <span class="stat-label" data-i18n="females">Женщины</span>
                 </div>
-
             </div>
 
-
-            <!-- TOP COUNTRIES -->
-
             <section class="statistics-section">
-
-                <div class="section-title">
-                    ◉ &nbsp; Топ стран
-                </div>
-
+                <div class="section-title" data-i18n="top_countries">◉ &nbsp; Топ стран</div>
                 <div id="countriesStats"></div>
-
             </section>
-
-
-            <!-- JOB STATISTICS -->
 
             <section class="statistics-section">
-
-                <div class="section-title">
-                    ▣ &nbsp; Распределение по должностям
-                </div>
-
+                <div class="section-title" data-i18n="job_distribution">▣ &nbsp; Распределение по должностям</div>
                 <div id="jobsStats"></div>
-
             </section>
 
-
-            <button
-                class="clear-button"
-                onclick="clearData()"
-            >
-                Очистить данные
-            </button>
+            <button class="clear-button" onclick="clearData()" data-i18n="clear_button">Очистить данные</button>
 
         </aside>
 
@@ -1113,826 +749,492 @@ select:focus {
 
 </div>
 
-
 <script>
-
-/* =========================================================
-   ДАННЫЕ
-========================================================= */
-
+/* ===== DATA ===== */
 const countries = [
-
-    ["Россия","RU",61.524,105.319],
-    ["США","US",37.090,-95.713],
-    ["Китай","CN",35.862,104.195],
-    ["Индия","IN",20.594,78.963],
-    ["Бразилия","BR",-14.235,-51.925],
-    ["Германия","DE",51.166,10.452],
-    ["Франция","FR",46.227,2.214],
-    ["Италия","IT",41.872,12.567],
-    ["Испания","ES",40.464,-3.749],
-    ["Великобритания","GB",55.378,-3.436],
-    ["Канада","CA",56.130,-106.347],
-    ["Япония","JP",36.205,138.253],
-    ["Южная Корея","KR",35.908,127.767],
-    ["Австралия","AU",-25.274,133.775],
-    ["Мексика","MX",23.635,-102.553],
-    ["Польша","PL",51.919,19.145],
-    ["Украина","UA",48.379,31.166],
-    ["Беларусь","BY",53.710,27.953],
-    ["Швейцария","CH",46.818,8.228],
-    ["Нидерланды","NL",52.133,5.291],
-    ["Турция","TR",38.964,35.243],
-    ["Норвегия","NO",60.472,8.469],
-    ["Швеция","SE",60.128,18.644],
-    ["Финляндия","FI",61.924,25.748],
-    ["Чехия","CZ",49.818,15.474],
-    ["Австрия","AT",47.516,14.550],
-    ["Португалия","PT",39.400,-8.225],
-    ["Греция","GR",39.074,21.824],
-    ["Аргентина","AR",-38.416,-63.617],
-    ["ЮАР","ZA",-30.560,22.938],
-    ["Казахстан","KZ",48.020,66.924],
-    ["Узбекистан","UZ",41.378,64.585],
-    ["Азербайджан","AZ",40.143,47.577],
-    ["Армения","AM",40.069,45.038],
-    ["Грузия","GE",42.315,43.357],
-    ["Румыния","RO",45.943,24.967],
-    ["Болгария","BG",42.734,25.486],
-    ["Сербия","RS",44.017,21.006],
-    ["Хорватия","HR",45.100,15.200],
-    ["Словакия","SK",48.669,19.699],
-    ["Словения","SI",46.151,14.996],
-    ["Венгрия","HU",47.163,19.503],
-    ["Литва","LT",55.169,23.881],
-    ["Латвия","LV",56.880,24.604],
-    ["Эстония","EE",58.595,25.014],
-    ["Исландия","IS",64.963,-19.021],
-    ["Ирландия","IE",53.142,-7.692],
-    ["Дания","DK",56.264,9.502],
-    ["Бельгия","BE",50.504,4.470],
-    ["Люксембург","LU",49.815,6.130],
-    ["Мальта","MT",35.938,14.375],
-    ["Кипр","CY",35.126,33.430],
-    ["Албания","AL",41.153,20.168],
-    ["Монголия","MN",46.863,103.847],
-    ["Вьетнам","VN",14.058,108.277],
-    ["Таиланд","TH",15.870,100.993],
-    ["Малайзия","MY",4.211,101.976],
-    ["Сингапур","SG",1.352,103.820],
-    ["Индонезия","ID",-0.789,113.921],
-    ["Филиппины","PH",12.880,121.774],
-    ["Иран","IR",32.428,53.688],
-    ["Ирак","IQ",33.223,43.679],
-    ["Израиль","IL",31.046,34.852],
-    ["Саудовская Аравия","SA",23.886,45.079],
-    ["ОАЭ","AE",23.424,53.848],
-    ["Катар","QA",25.355,51.184],
-    ["Кувейт","KW",29.312,47.482],
-    ["Оман","OM",21.474,55.975],
-    ["Египет","EG",26.821,30.803],
-    ["Марокко","MA",31.792,-7.093],
-    ["Алжир","DZ",28.034,1.660],
-    ["Тунис","TN",33.887,9.538],
-    ["Нигерия","NG",9.082,8.675],
-    ["Кения","KE",-0.024,37.906],
-    ["Эфиопия","ET",9.145,40.490],
-    ["Гана","GH",7.947,-1.023],
-    ["Танзания","TZ",-6.369,34.889],
-    ["Уганда","UG",1.373,32.290],
-    ["Замбия","ZM",-13.134,27.849],
-    ["Зимбабве","ZW",-19.015,29.155],
-    ["Ботсвана","BW",-22.329,24.685],
-    ["Намибия","NA",-22.958,18.491],
-    ["Мозамбик","MZ",-18.666,35.530],
-    ["Мадагаскар","MG",-18.767,46.869],
-    ["Куба","CU",21.522,-77.781],
-    ["Доминиканская Республика","DO",18.736,-70.163],
-    ["Ямайка","JM",18.110,-77.298],
-    ["Коста-Рика","CR",9.749,-83.753],
-    ["Панама","PA",8.538,-80.782],
-    ["Гватемала","GT",15.784,-90.231],
-    ["Гондурас","HN",15.200,-86.242],
-    ["Сальвадор","SV",13.794,-88.897],
-    ["Никарагуа","NI",12.865,-85.207],
-    ["Колумбия","CO",4.571,-74.297],
-    ["Венесуэла","VE",6.424,-66.590],
-    ["Эквадор","EC",-1.831,-78.183],
-    ["Перу","PE",-9.190,-75.015],
-    ["Боливия","BO",-16.290,-63.589],
-    ["Парагвай","PY",-23.443,-58.444],
-    ["Уругвай","UY",-32.523,-55.766],
-    ["Чили","CL",-35.675,-71.543],
-    ["Новая Зеландия","NZ",-40.901,174.886]
-
+    ["Россия","RU",61.524,105.319],["США","US",37.090,-95.713],["Китай","CN",35.862,104.195],
+    ["Индия","IN",20.594,78.963],["Бразилия","BR",-14.235,-51.925],["Германия","DE",51.166,10.452],
+    ["Франция","FR",46.227,2.214],["Италия","IT",41.872,12.567],["Испания","ES",40.464,-3.749],
+    ["Великобритания","GB",55.378,-3.436],["Канада","CA",56.130,-106.347],["Япония","JP",36.205,138.253],
+    ["Южная Корея","KR",35.908,127.767],["Австралия","AU",-25.274,133.775],["Мексика","MX",23.635,-102.553],
+    ["Польша","PL",51.919,19.145],["Украина","UA",48.379,31.166],["Беларусь","BY",53.710,27.953],
+    ["Швейцария","CH",46.818,8.228],["Нидерланды","NL",52.133,5.291],["Турция","TR",38.964,35.243],
+    ["Норвегия","NO",60.472,8.469],["Швеция","SE",60.128,18.644],["Финляндия","FI",61.924,25.748],
+    ["Чехия","CZ",49.818,15.474],["Австрия","AT",47.516,14.550],["Португалия","PT",39.400,-8.225],
+    ["Греция","GR",39.074,21.824],["Аргентина","AR",-38.416,-63.617],["ЮАР","ZA",-30.560,22.938],
+    ["Казахстан","KZ",48.020,66.924],["Узбекистан","UZ",41.378,64.585],["Азербайджан","AZ",40.143,47.577],
+    ["Армения","AM",40.069,45.038],["Грузия","GE",42.315,43.357],["Румыния","RO",45.943,24.967],
+    ["Болгария","BG",42.734,25.486],["Сербия","RS",44.017,21.006],["Хорватия","HR",45.100,15.200],
+    ["Словакия","SK",48.669,19.699],["Словения","SI",46.151,14.996],["Венгрия","HU",47.163,19.503],
+    ["Литва","LT",55.169,23.881],["Латвия","LV",56.880,24.604],["Эстония","EE",58.595,25.014],
+    ["Исландия","IS",64.963,-19.021],["Ирландия","IE",53.142,-7.692],["Дания","DK",56.264,9.502],
+    ["Бельгия","BE",50.504,4.470],["Люксембург","LU",49.815,6.130],["Мальта","MT",35.938,14.375],
+    ["Кипр","CY",35.126,33.430],["Албания","AL",41.153,20.168],["Монголия","MN",46.863,103.847],
+    ["Вьетнам","VN",14.058,108.277],["Таиланд","TH",15.870,100.993],["Малайзия","MY",4.211,101.976],
+    ["Сингапур","SG",1.352,103.820],["Индонезия","ID",-0.789,113.921],["Филиппины","PH",12.880,121.774],
+    ["Иран","IR",32.428,53.688],["Ирак","IQ",33.223,43.679],["Израиль","IL",31.046,34.852],
+    ["Саудовская Аравия","SA",23.886,45.079],["ОАЭ","AE",23.424,53.848],["Катар","QA",25.355,51.184],
+    ["Кувейт","KW",29.312,47.482],["Оман","OM",21.474,55.975],["Египет","EG",26.821,30.803],
+    ["Марокко","MA",31.792,-7.093],["Алжир","DZ",28.034,1.660],["Тунис","TN",33.887,9.538],
+    ["Нигерия","NG",9.082,8.675],["Кения","KE",-0.024,37.906],["Эфиопия","ET",9.145,40.490],
+    ["Гана","GH",7.947,-1.023],["Танзания","TZ",-6.369,34.889],["Уганда","UG",1.373,32.290],
+    ["Замбия","ZM",-13.134,27.849],["Зимбабве","ZW",-19.015,29.155],["Ботсвана","BW",-22.329,24.685],
+    ["Намибия","NA",-22.958,18.491],["Мозамбик","MZ",-18.666,35.530],["Мадагаскар","MG",-18.767,46.869],
+    ["Куба","CU",21.522,-77.781],["Доминиканская Республика","DO",18.736,-70.163],["Ямайка","JM",18.110,-77.298],
+    ["Коста-Рика","CR",9.749,-83.753],["Панама","PA",8.538,-80.782],["Гватемала","GT",15.784,-90.231],
+    ["Гондурас","HN",15.200,-86.242],["Сальвадор","SV",13.794,-88.897],["Никарагуа","NI",12.865,-85.207],
+    ["Колумбия","CO",4.571,-74.297],["Венесуэла","VE",6.424,-66.590],["Эквадор","EC",-1.831,-78.183],
+    ["Перу","PE",-9.190,-75.015],["Боливия","BO",-16.290,-63.589],["Парагвай","PY",-23.443,-58.444],
+    ["Уругвай","UY",-32.523,-55.766],["Чили","CL",-35.675,-71.543],["Новая Зеландия","NZ",-40.901,174.886]
 ];
 
-
-/* =========================================================
-   КАТЕГОРИИ ДОЛЖНОСТЕЙ
-========================================================= */
+/* ===== JOBS (keys for i18n) ===== */
+const jobKeys = [
+    "job_top_mgmt", "job_dept_heads", "job_hr", "job_training",
+    "job_sales", "job_admin", "job_science", "job_self_employed", "job_other"
+];
 
 const jobs = [
-
     "Топ-менеджмент",
-
     "Руководители отделов и направлений",
-
     "HR и управление персоналом",
-
     "Обучение и развитие",
-
     "Продажи и развитие бизнеса",
-
     "Административные и экспертные позиции",
-
     "Наука и образование",
-
     "Самозанятые",
-
     "Другое"
-
 ];
 
+/* ===== JOB COLORS (must match CSS .job-dot colors) ===== */
+const jobColors = [
+    "#7e5cf2", /* Топ-менеджмент — default .job-dot */
+    "#168ff0", /* Руководители отделов */
+    "#12bf78", /* HR */
+    "#f0c516", /* Обучение */
+    "#ff8c22", /* Продажи */
+    "#f2445a", /* Административные */
+    "#18c5c9", /* Наука */
+    "#9b62df", /* Самозанятые */
+    "#8da0b9"  /* Другое */
+];
 
-/* =========================================================
-   STATE
-========================================================= */
+/* ===== I18N ===== */
+const i18n = {
+    ru: {
+        title: "Карта населения мира",
+        subtitle: "Люди. Страны. Профессии. Вся планета.",
+        add_heading: "Добавить человека на карту",
+        add_subheading: "Заполните данные, чтобы увидеть человека на глобусе.",
+        country: "Страна", country_select: "Выберите страну",
+        gender: "Пол", male: "Мужской", female: "Женский",
+        job: "Должность", job_select: "Выберите должность",
+        add_button: "Добавить на карту",
+        select_country_hint: "◎ &nbsp; Выбрать страну на карте",
+        select_country_desc: "Кликните на страну на глобусе, чтобы увидеть статистику по ней в реальном времени.",
+        realtime_hint: "ⓘ &nbsp; Данные обновляются в реальном времени",
+        auto_rotate: "Автовращение",
+        stats_title: "Общая статистика",
+        total: "Всего", males: "Мужчины", females: "Женщины",
+        top_countries: "◉ &nbsp; Топ стран",
+        job_distribution: "▣ &nbsp; Распределение по должностям",
+        clear_button: "Очистить данные",
+        alert_country: "Выберите страну.",
+        alert_job: "Выберите должность.",
+        confirm_clear: "Удалить все добавленные данные?",
+        empty_stat: "Добавьте первого человека",
+        job_top_mgmt: "Топ-менеджмент",
+        job_dept_heads: "Руководители отделов и направлений",
+        job_hr: "HR и управление персоналом",
+        job_training: "Обучение и развитие",
+        job_sales: "Продажи и развитие бизнеса",
+        job_admin: "Административные и экспертные позиции",
+        job_science: "Наука и образование",
+        job_self_employed: "Самозанятые",
+        job_other: "Другое"
+    },
+    en: {
+        title: "World Population Map",
+        subtitle: "People. Countries. Professions. The entire planet.",
+        add_heading: "Add a person to the map",
+        add_subheading: "Fill in the data to see the person on the globe.",
+        country: "Country", country_select: "Select a country",
+        gender: "Gender", male: "Male", female: "Female",
+        job: "Position", job_select: "Select a position",
+        add_button: "Add to map",
+        select_country_hint: "◎ &nbsp; Select a country on the map",
+        select_country_desc: "Click on a country on the globe to see its statistics in real time.",
+        realtime_hint: "ⓘ &nbsp; Data updates in real time",
+        auto_rotate: "Auto-rotate",
+        stats_title: "General statistics",
+        total: "Total", males: "Males", females: "Females",
+        top_countries: "◉ &nbsp; Top countries",
+        job_distribution: "▣ &nbsp; Distribution by position",
+        clear_button: "Clear data",
+        alert_country: "Please select a country.",
+        alert_job: "Please select a position.",
+        confirm_clear: "Delete all added data?",
+        empty_stat: "Add the first person",
+        job_top_mgmt: "Top management",
+        job_dept_heads: "Department heads",
+        job_hr: "HR and personnel management",
+        job_training: "Training and development",
+        job_sales: "Sales and business development",
+        job_admin: "Administrative and expert positions",
+        job_science: "Science and education",
+        job_self_employed: "Self-employed",
+        job_other: "Other"
+    },
+    es: {
+        title: "Mapa de población mundial",
+        subtitle: "Personas. Países. Profesiones. Todo el planeta.",
+        add_heading: "Añadir persona al mapa",
+        add_subheading: "Rellene los datos para ver a la persona en el globo.",
+        country: "País", country_select: "Seleccione un país",
+        gender: "Género", male: "Masculino", female: "Femenino",
+        job: "Cargo", job_select: "Seleccione un cargo",
+        add_button: "Añadir al mapa",
+        select_country_hint: "◎ &nbsp; Seleccionar país en el mapa",
+        select_country_desc: "Haga clic en un país del globo para ver sus estadísticas en tiempo real.",
+        realtime_hint: "ⓘ &nbsp; Datos actualizados en tiempo real",
+        auto_rotate: "Auto-rotación",
+        stats_title: "Estadísticas generales",
+        total: "Total", males: "Hombres", females: "Mujeres",
+        top_countries: "◉ &nbsp; Top países",
+        job_distribution: "▣ &nbsp; Distribución por cargo",
+        clear_button: "Borrar datos",
+        alert_country: "Seleccione un país.",
+        alert_job: "Seleccione un cargo.",
+        confirm_clear: "¿Borrar todos los datos añadidos?",
+        empty_stat: "Añade a la primera persona",
+        job_top_mgmt: "Alta dirección",
+        job_dept_heads: "Jefes de departamento",
+        job_hr: "RRHH y gestión de personal",
+        job_training: "Formación y desarrollo",
+        job_sales: "Ventas y desarrollo de negocio",
+        job_admin: "Posiciones administrativas y expertas",
+        job_science: "Ciencia y educación",
+        job_self_employed: "Autónomos",
+        job_other: "Otros"
+    }
+};
 
+let currentLang = localStorage.getItem("app_lang") || "ru";
+let currentTheme = localStorage.getItem("app_theme") || "dark";
+
+/* ===== STATE ===== */
 let selectedGender = "Мужской";
+let people = JSON.parse(localStorage.getItem("world_population_people") || "[]");
 
-let people = JSON.parse(
-    localStorage.getItem(
-        "world_population_people"
-    ) || "[]"
-);
+const countrySelect = document.getElementById("country");
+const jobSelect = document.getElementById("job");
 
-
-/* =========================================================
-   DOM
-========================================================= */
-
-const countrySelect =
-    document.getElementById("country");
-
-const jobSelect =
-    document.getElementById("job");
-
-
-/* =========================================================
-   ЗАПОЛНЯЕМ СТРАНЫ
-========================================================= */
-
+/* ===== FILL COUNTRIES ===== */
 countries.forEach(country => {
-
-    const option =
-        document.createElement("option");
-
+    const option = document.createElement("option");
     option.value = country[0];
     option.textContent = country[0];
-
     countrySelect.appendChild(option);
-
 });
 
+/* ===== FILL JOBS ===== */
+function fillJobs() {
+    // remove old options except first
+    while (jobSelect.options.length > 1) {
+        jobSelect.remove(1);
+    }
+    jobs.forEach((job, i) => {
+        const option = document.createElement("option");
+        option.value = job;
+        option.textContent = i18n[currentLang][jobKeys[i]];
+        jobSelect.appendChild(option);
+    });
+}
 
-/* =========================================================
-   ЗАПОЛНЯЕМ ДОЛЖНОСТИ
-========================================================= */
-
-jobs.forEach(job => {
-
-    const option =
-        document.createElement("option");
-
-    option.value = job;
-    option.textContent = job;
-
-    jobSelect.appendChild(option);
-
-});
-
-
-/* =========================================================
-   GLOBE
-========================================================= */
-
+/* ===== GLOBE ===== */
 let globe = null;
-
 let globeCameraAltitude = 2.35;
 
-
-/* =========================================================
-   СОЗДАНИЕ ГЛОБУСА
-========================================================= */
-
 function createGlobe() {
+    const element = document.getElementById("globe");
 
-    const element =
-        document.getElementById("globe");
+    if (!element.clientWidth || !element.clientHeight) {
+        setTimeout(createGlobe, 100);
+        return;
+    }
 
-    globe =
-        Globe()(element)
-
-        .backgroundColor("#020711")
-
-        .globeImageUrl(
-            "https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-        )
-
-        .bumpImageUrl(
-            "https://unpkg.com/three-globe/example/img/earth-topology.png"
-        )
-
+    globe = Globe()(element)
+        .backgroundColor(currentTheme === "light" ? "#e8eef5" : "#020711")
+        .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+        .bumpImageUrl("https://unpkg.com/three-globe/example/img/earth-topology.png")
         .showAtmosphere(true)
-
         .atmosphereColor("#36aaff")
-
         .atmosphereAltitude(.16)
-
         .pointsData([])
-
         .pointLat("lat")
-
         .pointLng("lng")
-
-        .pointColor(() => "#6ee9ff")
-
+        .pointColor("color")
         .pointRadius("size")
-
         .pointAltitude(.025)
-
         .pointLabel("label");
 
+    globe.width(element.clientWidth);
+    globe.height(element.clientHeight);
 
     globe.controls().autoRotate = true;
-
     globe.controls().autoRotateSpeed = .22;
-
     globe.controls().enableDamping = true;
-
     globe.controls().dampingFactor = .08;
 
-
-    globe.pointOfView(
-        {
-            lat: 18,
-            lng: 18,
-            altitude: globeCameraAltitude
-        },
-        0
-    );
-
+    globe.pointOfView({ lat: 18, lng: 18, altitude: globeCameraAltitude }, 0);
 
     updateGlobe();
-
 }
 
-
-/* =========================================================
-   ПОЛ
-========================================================= */
-
+/* ===== GENDER ===== */
 function selectGender(gender) {
-
     selectedGender = gender;
-
-    document
-        .querySelectorAll(".gender-button")
-        .forEach(button => {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.gender === gender
-            );
-
-        });
-
+    document.querySelectorAll(".gender-button").forEach(button => {
+        button.classList.toggle("active", button.dataset.gender === gender);
+    });
 }
 
-
-/* =========================================================
-   ДОБАВЛЕНИЕ ЧЕЛОВЕКА
-========================================================= */
-
+/* ===== ADD PERSON ===== */
 function addPerson() {
+    const country = countrySelect.value;
+    const job = jobSelect.value;
 
-    const country =
-        countrySelect.value;
-
-    const job =
-        jobSelect.value;
-
-
-    if (!country) {
-
-        alert("Выберите страну.");
-
-        return;
-    }
-
-
-    if (!job) {
-
-        alert("Выберите должность.");
-
-        return;
-    }
-
+    if (!country) { alert(i18n[currentLang].alert_country); return; }
+    if (!job) { alert(i18n[currentLang].alert_job); return; }
 
     people.push({
-
-        id:
-            Date.now() +
-            "_" +
-            Math.random()
-                .toString(36)
-                .slice(2),
-
-        country,
-
-        job,
-
-        gender: selectedGender
-
+        id: Date.now() + "_" + Math.random().toString(36).slice(2),
+        country, job, gender: selectedGender
     });
-
 
     saveData();
-
     updateStatistics();
-
     updateGlobe();
 
-
     countrySelect.value = "";
-
     jobSelect.value = "";
-
 }
-
-
-/* =========================================================
-   СОХРАНЕНИЕ
-========================================================= */
 
 function saveData() {
-
-    localStorage.setItem(
-
-        "world_population_people",
-
-        JSON.stringify(people)
-
-    );
-
+    localStorage.setItem("world_population_people", JSON.stringify(people));
 }
-
-
-/* =========================================================
-   ПОЛУЧИТЬ КООРДИНАТЫ СТРАНЫ
-========================================================= */
 
 function getCountry(countryName) {
-
-    return countries.find(
-        country =>
-            country[0] === countryName
-    );
-
+    return countries.find(country => country[0] === countryName);
 }
 
-
-/* =========================================================
-   ОБНОВЛЕНИЕ ГЛОБУСА
-========================================================= */
-
+/* ===== UPDATE GLOBE ===== */
 function updateGlobe() {
-
     if (!globe) return;
-
-
     const points = [];
 
-
     people.forEach((person, index) => {
-
-        const country =
-            getCountry(person.country);
-
+        const country = getCountry(person.country);
         if (!country) return;
 
-
-        /*
-         * Если несколько человек находятся
-         * в одной стране, слегка разводим точки,
-         * чтобы они были видны.
-         */
-
-        const spread =
-            (index % 7) - 3;
-
+        const spread = (index % 7) - 3;
+        const genderText = i18n[currentLang][person.gender === "Мужской" ? "male" : "female"];
+        const jobIndex = jobs.indexOf(person.job);
+        const jobText = jobIndex >= 0 ? i18n[currentLang][jobKeys[jobIndex]] : person.job;
+        const color = jobIndex >= 0 ? jobColors[jobIndex] : "#6ee9ff";
 
         points.push({
-
-            lat:
-                country[2] +
-                spread * .18,
-
-            lng:
-                country[3] +
-                ((index % 9) - 4) * .22,
-
+            lat: country[2] + spread * .18,
+            lng: country[3] + ((index % 9) - 4) * .22,
             size: .25,
-
-            label:
-                "<b>" +
-                person.country +
-                "</b><br>" +
-                person.gender +
-                "<br>" +
-                person.job
-
+            color: color,
+            label: "<b>" + person.country + "</b><br>" + genderText + "<br>" + jobText
         });
-
     });
-
 
     globe.pointsData(points);
-
 }
 
-
-/* =========================================================
-   СТАТИСТИКА
-========================================================= */
-
+/* ===== STATISTICS ===== */
 function updateStatistics() {
+    const total = people.length;
+    const males = people.filter(p => p.gender === "Мужской").length;
+    const females = people.filter(p => p.gender === "Женский").length;
 
-    const total =
-        people.length;
+    const loc = currentLang === "ru" ? "ru-RU" : currentLang === "es" ? "es-ES" : "en-US";
 
-
-    const males =
-        people.filter(
-            person =>
-                person.gender === "Мужской"
-        ).length;
-
-
-    const females =
-        people.filter(
-            person =>
-                person.gender === "Женский"
-        ).length;
-
-
-    document.getElementById(
-        "totalCount"
-    ).textContent =
-        total.toLocaleString("ru-RU");
-
-
-    document.getElementById(
-        "maleCount"
-    ).textContent =
-        males.toLocaleString("ru-RU");
-
-
-    document.getElementById(
-        "femaleCount"
-    ).textContent =
-        females.toLocaleString("ru-RU");
-
+    document.getElementById("totalCount").textContent = total.toLocaleString(loc);
+    document.getElementById("maleCount").textContent = males.toLocaleString(loc);
+    document.getElementById("femaleCount").textContent = females.toLocaleString(loc);
 
     updateCountryStatistics();
-
     updateJobStatistics();
-
 }
 
-
-/* =========================================================
-   СТАТИСТИКА ПО СТРАНАМ
-========================================================= */
-
 function updateCountryStatistics() {
-
-    const container =
-        document.getElementById(
-            "countriesStats"
-        );
-
-
+    const container = document.getElementById("countriesStats");
     container.innerHTML = "";
 
-
     const countryCounts = {};
-
-
     people.forEach(person => {
-
-        countryCounts[person.country] =
-            (countryCounts[person.country] || 0) + 1;
-
+        countryCounts[person.country] = (countryCounts[person.country] || 0) + 1;
     });
 
-
-    const sorted =
-        Object.entries(countryCounts)
-            .sort(
-                (a, b) =>
-                    b[1] - a[1]
-            )
-            .slice(0, 7);
-
+    const sorted = Object.entries(countryCounts).sort((a, b) => b[1] - a[1]).slice(0, 7);
 
     if (sorted.length === 0) {
-
-        container.innerHTML =
-            '<div class="empty-stat">' +
-            "Добавьте первого человека" +
-            "</div>";
-
+        container.innerHTML = '<div class="empty-stat">' + i18n[currentLang].empty_stat + '</div>';
         return;
     }
 
+    const max = sorted[0][1];
 
-    const max =
-        sorted[0][1];
-
-
-    sorted.forEach(
-        ([country, count], index) => {
-
-            const row =
-                document.createElement("div");
-
-            row.className =
-                "country-row";
-
-
-            const percent =
-                Math.max(
-                    8,
-                    count / max * 100
-                );
-
-
-            row.innerHTML = `
-
-                <span class="country-rank">
-                    ${index + 1}
-                </span>
-
-                <span>
-                    ${country}
-                </span>
-
-                <strong class="country-count">
-                    ${count}
-                </strong>
-
-                <span class="country-bar">
-                    <span style="width:${percent}%"></span>
-                </span>
-
-            `;
-
-
-            container.appendChild(row);
-
-        }
-    );
-
+    sorted.forEach(([country, count], index) => {
+        const row = document.createElement("div");
+        row.className = "country-row";
+        const percent = Math.max(8, count / max * 100);
+        row.innerHTML = '<span class="country-rank">' + (index + 1) + '</span><span>' + country + '</span><strong class="country-count">' + count + '</strong><span class="country-bar"><span style="width:' + percent + '%"></span></span>';
+        container.appendChild(row);
+    });
 }
-
-
-/* =========================================================
-   СТАТИСТИКА ПО ДОЛЖНОСТЯМ
-========================================================= */
 
 function updateJobStatistics() {
-
-    const container =
-        document.getElementById(
-            "jobsStats"
-        );
-
-
+    const container = document.getElementById("jobsStats");
     container.innerHTML = "";
 
-
     const counts = {};
-
-
-    jobs.forEach(job => {
-
-        counts[job] = 0;
-
-    });
-
-
+    jobs.forEach(job => { counts[job] = 0; });
     people.forEach(person => {
-
-        if (counts[person.job] !== undefined) {
-
-            counts[person.job]++;
-
-        }
-
+        if (counts[person.job] !== undefined) { counts[person.job]++; }
     });
 
-
-    jobs.forEach(job => {
-
-        const row =
-            document.createElement("div");
-
-        row.className =
-            "job-row";
-
-
-        row.innerHTML = `
-
-            <span class="job-dot"></span>
-
-            <span>
-                ${job}
-            </span>
-
-            <strong class="job-count">
-                ${counts[job]}
-            </strong>
-
-        `;
-
-
+    jobs.forEach((job, i) => {
+        const row = document.createElement("div");
+        row.className = "job-row";
+        row.innerHTML = '<span class="job-dot"></span><span>' + i18n[currentLang][jobKeys[i]] + '</span><strong class="job-count">' + counts[job] + '</strong>';
         container.appendChild(row);
-
     });
-
 }
-
-
-/* =========================================================
-   ОЧИСТКА
-========================================================= */
 
 function clearData() {
-
     if (!people.length) return;
-
-
-    const confirmed =
-        confirm(
-            "Удалить все добавленные данные?"
-        );
-
-
-    if (!confirmed) return;
-
-
+    if (!confirm(i18n[currentLang].confirm_clear)) return;
     people = [];
-
-
     saveData();
-
     updateStatistics();
-
     updateGlobe();
-
 }
 
-
-/* =========================================================
-   AUTO ROTATION
-========================================================= */
-
+/* ===== ROTATION / ZOOM ===== */
 function toggleRotation() {
-
     if (!globe) return;
-
-
-    const checkbox =
-        document.getElementById(
-            "autoRotate"
-        );
-
-
-    globe.controls().autoRotate =
-        checkbox.checked;
-
+    globe.controls().autoRotate = document.getElementById("autoRotate").checked;
 }
-
-
-/* =========================================================
-   ZOOM
-========================================================= */
 
 function zoomIn() {
-
     if (!globe) return;
-
-
-    const pov =
-        globe.pointOfView();
-
-
-    globe.pointOfView(
-        {
-            lat: pov.lat,
-            lng: pov.lng,
-            altitude:
-                Math.max(
-                    .8,
-                    pov.altitude - .35
-                )
-        },
-        500
-    );
-
+    const pov = globe.pointOfView();
+    globe.pointOfView({ lat: pov.lat, lng: pov.lng, altitude: Math.max(.8, pov.altitude - .35) }, 500);
 }
-
 
 function zoomOut() {
-
     if (!globe) return;
-
-
-    const pov =
-        globe.pointOfView();
-
-
-    globe.pointOfView(
-        {
-            lat: pov.lat,
-            lng: pov.lng,
-            altitude:
-                Math.min(
-                    4.5,
-                    pov.altitude + .35
-                )
-        },
-        500
-    );
-
+    const pov = globe.pointOfView();
+    globe.pointOfView({ lat: pov.lat, lng: pov.lng, altitude: Math.min(4.5, pov.altitude + .35) }, 500);
 }
-
 
 function resetGlobe() {
-
     if (!globe) return;
-
-
-    globe.pointOfView(
-        {
-            lat: 18,
-            lng: 18,
-            altitude: 2.35
-        },
-        700
-    );
-
+    globe.pointOfView({ lat: 18, lng: 18, altitude: 2.35 }, 700);
 }
 
-
-/* =========================================================
-   START
-========================================================= */
-
-createGlobe();
-
-updateStatistics();
-
-
-/* =========================================================
-   АДАПТАЦИЯ GLOBE ПРИ RESIZE
-========================================================= */
-
-window.addEventListener(
-    "resize",
-    () => {
-
-        if (!globe) return;
-
-        const element =
-            document.getElementById("globe");
-
-        globe.width(
-            element.clientWidth
-        );
-
-        globe.height(
-            element.clientHeight
-        );
-
+/* ===== THEME ===== */
+function applyTheme() {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    const btn = document.getElementById("themeBtn");
+    if (currentTheme === "dark") {
+        btn.textContent = "🌙";
+    } else {
+        btn.textContent = "☀️";
     }
-);
+    if (globe) {
+        globe.backgroundColor(currentTheme === "light" ? "#e8eef5" : "#020711");
+    }
+}
 
+function toggleTheme() {
+    currentTheme = currentTheme === "dark" ? "light" : "dark";
+    localStorage.setItem("app_theme", currentTheme);
+    applyTheme();
+}
+
+/* ===== LANGUAGE ===== */
+function applyLanguage() {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (i18n[currentLang][key]) {
+            el.innerHTML = i18n[currentLang][key];
+        }
+    });
+
+    document.getElementById("langBtn").textContent = currentLang.toUpperCase() + " ⌄";
+    document.querySelectorAll(".lang-option").forEach(opt => {
+        opt.classList.remove("active");
+    });
+    const activeIdx = currentLang === "ru" ? 0 : currentLang === "en" ? 1 : 2;
+    document.querySelectorAll(".lang-option")[activeIdx].classList.add("active");
+
+    fillJobs();
+    updateStatistics();
+    updateGlobe();
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("app_lang", lang);
+    applyLanguage();
+    closeLangMenu();
+}
+
+function toggleLangMenu() {
+    document.getElementById("langDropdown").classList.toggle("open");
+}
+
+function closeLangMenu() {
+    document.getElementById("langDropdown").classList.remove("open");
+}
+
+document.addEventListener("click", function(e) {
+    const wrapper = document.querySelector(".lang-wrapper");
+    if (wrapper && !wrapper.contains(e.target)) {
+        closeLangMenu();
+    }
+});
+
+/* ===== INIT ===== */
+applyTheme();
+applyLanguage();
+
+window.addEventListener("load", function() {
+    createGlobe();
+    updateStatistics();
+
+    requestAnimationFrame(function() {
+        if (!globe) return;
+        const el = document.getElementById("globe");
+        globe.width(el.clientWidth);
+        globe.height(el.clientHeight);
+        globe.pointOfView({ lat: 18, lng: 18, altitude: globeCameraAltitude }, 0);
+    });
+});
+
+window.addEventListener("resize", function() {
+    if (!globe) return;
+    const el = document.getElementById("globe");
+    globe.width(el.clientWidth);
+    globe.height(el.clientHeight);
+});
 </script>
 
 </body>
 </html>
-```
-
